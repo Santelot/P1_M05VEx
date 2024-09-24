@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-4').style.display = 'none';
+            }
+        }
+
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+
+<div class="header">
+    <h1>Playbook - P1 - M05VEx</h1>
+</div>
+
+<div class="container">
+    <div class="dropdown">
+        <label for="time-select">Tiempo efectivo de Clase:</label>
+        <select id="time-select" onchange="updateActivities()">
+            <option value="50">50 minutos</option>
+            <option value="45">45 minutos</option>
+            <option value="40">40 minutos</option>
+        </select>
+    </div>
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 50 minutos</h2>
+
+<!-- Actividad 1 (4 pasos) -->
+<div id="activity-1" class="activity">
+    <div class="banner" onclick="toggleContent('saludo_gnius_club')">
+        <div class="title">
+            <span>🎉 Actividad 1: Saludo Gnius Club (4 pasos)</span>
+            <span>⏰ Tiempo: 2 minutos</span>
+        </div>
+        <div class="subtitle">Saludo, escaneo de estado de ánimo, ritual de agradecimiento y objetivos del día.</div>
+    </div>
+    <div id="saludo_gnius_club" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 2 "Bienvenida".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Hola, Genios! 🌟 ¿Están listos para descubrir juntos los secretos de su primera computadora? ¡Hoy les espera una clase súper divertida y llena de sorpresas! ¡Vamos con todo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Proyectar Diapositiva 3 "¿Cómo se sienten hoy?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Antes de empezar, quiero saber cómo se sienten. Si están emocionados por aprender sobre computadoras, levanten bien alto las manos. Si están tranquilos, crucen los brazos.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 4 "Gracias por asistir".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, junten sus manos y demos gracias por esta oportunidad de aprender algo increíble hoy. ¡Gracias por estar aquí, listos para descubrir el mundo de las computadoras!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 5 "Objetivos de la Misión".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Los objetivos de nuestra misión del día de hoy son: 1. Conocer los componentes clave de una computadora. 2. Descubrir cómo trabajan juntos para hacer que todo funcione. ¡Va a ser genial!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 2 (3 pasos) -->
+<div id="activity-2" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion_innovacion_dia')">
+        <div class="title">
+            <span>💡 Actividad 2: Introducción a la Innovación del Día (3 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Presentación y reflexión sobre la innovación del día: el juego Osu!.</div>
+    </div>
+    <div id="introduccion_innovacion_dia" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Innovación del Día".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, hoy les traemos algo muy emocionante! Vamos a conocer un juego llamado Osu!, que usa la tecnología para desarrollar precisión y rapidez mientras se divierten al ritmo de la música.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1.5 minutos): Proyectar Diapositiva 7 "Demostración de Osu!".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Osu! es un juego rítmico donde deben sincronizar sus movimientos con la música. Utiliza tecnología de precisión que nos ayuda a mejorar nuestra concentración y reflejos. ¡Miren cómo funciona!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (1.5 minutos): Proyectar Diapositiva 8 "Reflexión sobre Osu!".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Qué les pareció? Osu! nos muestra cómo la tecnología puede hacernos más rápidos y precisos. ¡Esto es algo que también ocurre en las computadoras, donde cada componente tiene que funcionar rápido y en armonía!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 3 (10 pasos) -->
+<div id="activity-3" class="activity">
+    <div class="banner" onclick="toggleContent('introduccion_componentes')">
+        <div class="title">
+            <span>🖥️ Actividad 3: Introducción a los Componentes de la Computadora (10 pasos)</span>
+            <span>⏰ Tiempo: 15 minutos</span>
+        </div>
+        <div class="subtitle">Explicación de los componentes clave de una computadora.</div>
+    </div>
+    <div id="introduccion_componentes" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 9 "Componentes de la Computadora".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Hoy, Genios, vamos a conocer a los 'superhéroes' que hacen que su computadora funcione. Cada uno tiene una misión especial, y cuando trabajan juntos, ¡logran cosas increíbles! Pongan atención porque dentro de lo que voy a explicar hay un Easter Egg. Al final de la clase voy a lanzar una pregunta y quien la responda, ganará mon-e.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (2 minutos): Proyectar Diapositiva 10 "La CPU".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">El primer superhéroe es la CPU, el cerebro de la computadora. Es como el jefe de todo el equipo, ¡siempre ocupado dando órdenes! Imagina que está diciendo 'tú haces esto, tú haces aquello' todo el día. Es súper rápida tomando decisiones y asegurándose de que los otros componentes sigan sus instrucciones. ¡Nada se mueve sin la CPU al mando!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 11 "El Disco Duro".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora viene el disco duro, el guardián de todos tus recuerdos, fotos, y juegos. Aunque no es tan rápido como la CPU, ¡es muy bueno cuidando tus cosas! Imagina que es como una gran caja de juguetes donde guardas todo, pero a veces tarda un poquito en encontrar lo que necesitas.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Proyectar Diapositiva 12 "La RAM".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La RAM es como el mensajero de la computadora, corriendo de un lado al otro todo el tiempo. Imagina que la RAM lleva notas entre la CPU y el disco duro. Es súper rápida, pero hay un truco: cuando apagas la computadora, ¡se olvida de todo! Así que si no guardas lo que estás haciendo, ¡adiós a esa información!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (2 minutos): Proyectar Diapositiva 13 "La ROM".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">La ROM es como el guardián que nunca olvida lo importante. Guarda los secretos de la computadora, como las cosas esenciales que necesita para encenderse y funcionar. Imagina que ROM tiene una libreta donde anota todo lo que no debe olvidar, ¡incluso cuando apagas la computadora!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (2 minutos): Proyectar Diapositiva 14 "La GPU".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Y aquí está la GPU, el artista de la computadora. Todo lo que ven en la pantalla pasa por la GPU. Es como el pintor que dibuja los videojuegos, las fotos y los videos. ¡Pero, ojo! La GPU necesita ayuda de la RAM y la ROM para acordarse de todo lo que tiene que mostrar.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 7 (1 minuto): Proyectar Diapositiva 15 "Trabajo en Equipo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, lo más genial de estos superhéroes es que no trabajan solos. La CPU, la RAM, la ROM, el disco duro y la GPU son como un equipo de fútbol. Cada uno tiene una función especial, y juntos logran que todo funcione de maravilla. ¡Cuando uno necesita ayuda, los demás están listos para apoyarlo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 8 (1.5 minutos): Proyectar Diapositiva 16 "La Computadora en Acción".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Ahora que conocen a los superhéroes de la computadora, ¿se han dado cuenta de que ellos trabajan cada vez que juegan en la tablet o ven videos en la computadora? ¡Son ellos los que hacen que todo funcione rápido y sin problemas! ¡Qué increíble saber quiénes están detrás de todo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 9 (1 minuto): Proyectar Diapositiva 17 "Pregunta del Día".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Quién me puede decir cuál es el componente que guarda todo lo que vemos en la pantalla? ¿Y cuál es el que se asegura de que la computadora no se olvide de lo importante cuando la apagamos? ¡Levanten la mano y díganme!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 10 (1 minuto): Proyectar Diapositiva 18 "Revisión de Objetivos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, qué buen trabajo! Ya conocen los componentes de la computadora, y eso significa que hemos completado nuestro primer objetivo del día. ¡Estamos a la mitad de nuestra misión y vamos muy bien!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 4 (3 pasos) -->
+<div id="activity-4" class="activity">
+    <div class="banner" onclick="toggleContent('ejercicio_risa')">
+        <div class="title">
+            <span>😂 Actividad 4: Ejercicio de Risa (3 pasos)</span>
+            <span>⏰ Tiempo: 1.5 minutos</span>
+        </div>
+        <div class="subtitle">Ejercicio de risa para recargar energías.</div>
+    </div>
+    <div id="ejercicio_risa" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 19 "Ejercicio de Risa".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ahora vamos a hacer algo súper divertido. ¡Nos vamos a reír a carcajadas durante 15 segundos! Ríanse de la forma más exagerada que puedan, como si hubieran escuchado el chiste más gracioso del mundo. ¡Prepárense!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 20 "Ríe por 15 segundos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡A la cuenta de tres, comenzamos! Uno, dos, tres... ¡Ríanse a carcajadas! ¡Más fuerte, que se escuche por todo el salón! ¡Jajajajajaja! Sigamos... ¡Solo faltan unos segundos!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 21 "Reflexión sobre el Ejercicio".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Qué tal se sintieron? ¡Reír nos hace sentir más ligeros y felices! Ahora que hemos recargado energías, estamos listos para seguir con nuestra misión. ¡Vamos a por el siguiente reto!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 5 (6 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('unir_componentes')">
+        <div class="title">
+            <span>💻 Actividad 5: Unir Componentes con Descripciones (6 pasos)</span>
+            <span>⏰ Tiempo: 17 minutos</span>
+        </div>
+        <div class="subtitle">Unir componentes de la computadora con sus descripciones.</div>
+    </div>
+    <div id="unir_componentes" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 22 "Unir Componentes con Descripciones".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, ha llegado el momento de poner en práctica todo lo que aprendimos! Cada uno va a recibir una hoja con los componentes de la computadora y sus descripciones. Su misión es unir cada dibujo con su descripción correcta. ¡Usen caminos de colores para hacerlo más divertido!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 23 "Instrucciones para el Reto".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Recuerden, pueden usar cualquier color para conectar los componentes con sus descripciones. Asegúrense de hacer conexiones claras y precisas. ¡Piensen rápido y elijan bien!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (10 minutos): Proyectar Diapositiva 24 "Temporizador de 10 Minutos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">N/A</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (5 minutos): Proyectar Diapositiva 25 "Revisión del Desafío".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Muy bien, ¡tiempo terminado! Vamos a revisar algunas respuestas. ¿Quién quiere compartir cómo conectó los componentes? Levanten la mano, y revisemos juntos para ver si todos están bien conectados.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (1 minuto): Proyectar Diapositiva 26 "Revisión de los Objetivos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, ya completamos el segundo objetivo del día! Ahora conocen los componentes de la computadora y han aprendido cómo conectarlos con sus funciones. ¡Gran trabajo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 6 (0.5 minutos): Proyectar Diapositiva 27 "You've Got Mon-e".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Felicidades, Genios! Han hecho un gran trabajo conectando los componentes y completando la misión. Como recompensa, han ganado Mon-e. ¡Sigamos sumando!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 6 (4 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('easter_egg')">
+        <div class="title">
+            <span>🎉 Actividad 6: Easter Egg - Pregunta (4 pasos)</span>
+            <span>⏰ Tiempo: 3.5 minutos</span>
+        </div>
+        <div class="subtitle">Preguntas sorpresa para ganar Mon-e adicional.</div>
+    </div>
+    <div id="easter_egg" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 28 "Easter Egg - Pregunta".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ha llegado el momento del Easter Egg. ¡Pongan atención! La siguiente pregunta les puede hacer ganar más Mon-e. Levanten la mano si saben la respuesta, y yo elegiré a tres genios para responder.</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 29 "Pregunta: ¿Quién es el artista?".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¿Cómo se le dice al componente de la computadora que es considerado 'El artista'? ¡Levanten la mano si saben la respuesta!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (2 minutos): Proyectar Diapositiva 30 "Respuestas".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">A ver, tú primero. [Escucha la respuesta]. Muy bien, ahora tú. Y por último, tú. ¡Perfecto! El componente 'artista' es la GPU. ¡Gran trabajo, Genios!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (0.5 minutos): Proyectar Diapositiva 31 "Mon-e Recompensa".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Felicidades a los que acertaron! Han ganado más Mon-e por prestar atención y participar en esta misión. ¡Muy bien, Genios!</div>
+        </div>
+    </div>
+</div>
+
+<!-- Actividad 7 (1 paso) -->
+<div id="activity-7" class="activity">
+    <div class="banner" onclick="toggleContent('honor_the_dojo')">
+        <div class="title">
+            <span>🏆 Actividad 7: Honor the Dojo (1 paso)</span>
+            <span>⏰ Tiempo: 3 minutos</span>
+        </div>
+        <div class="subtitle">Dejar el espacio limpio y ordenado.</div>
+    </div>
+    <div id="honor_the_dojo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (3 minutos): Proyectar Diapositiva 32 "Honor the Dojo".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ha llegado el momento de Honor the Dojo. Pasen al frente, traigan sus materiales y dejemos el salón en orden. ¡Gracias por su gran trabajo hoy, nos vemos en la próxima misión!</div>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
